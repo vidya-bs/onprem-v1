@@ -1,0 +1,5634 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Online Banking API",
+        "version": "v1",
+        "title": "Online Banking API",
+        "termsOfService": "http://acmebank.apiwiz.io/terms-of-service",
+        "contact": {
+            "name": "Charles Livington",
+            "url": "http://acmebank.apiwiz.io",
+            "email": "support@apiwiz.com"
+        },
+        "license": {
+            "name": "netbanking",
+            "url": "http://acmebank.apiwiz.io"
+        }
+    },
+    "host": "acmebank.apiwiz.io",
+    "basePath": "/v1/banking",
+    "tags": [
+        {
+            "name": "bank-account-controller",
+            "description": ""
+        },
+        {
+            "name": "branch-location-controller",
+            "description": ""
+        },
+        {
+            "name": "issue-controller",
+            "description": ""
+        },
+        {
+            "name": "org-controller",
+            "description": ""
+        },
+        {
+            "name": "primary-account-controller",
+            "description": ""
+        },
+        {
+            "name": "product-controller",
+            "description": ""
+        },
+        {
+            "name": "recepient-controller",
+            "description": ""
+        },
+        {
+            "name": "savings-account-controller",
+            "description": ""
+        },
+        {
+            "name": "savings-transaction-controller",
+            "description": ""
+        },
+        {
+            "name": "transfers-controller",
+            "description": ""
+        },
+        {
+            "name": "users-controller",
+            "description": ""
+        }
+    ],
+    "paths": {
+        "/bank-account": {
+            "get": {
+                "tags": [
+                    "bank-account-controller"
+                ],
+                "summary": "findAllBankAccount",
+                "operationId": "findAllBankAccountUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "default": 20,
+                        "format": "int32",
+                        "x-key": 1,
+                        "type": "integer"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/Accept"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfListOfBankAccount"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "findAllBankAccountUsingGET",
+                "security": []
+            },
+            "post": {
+                "tags": [
+                    "bank-account-controller"
+                ],
+                "summary": "add",
+                "operationId": "addUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BankAccount"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfBankAccount"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "addUsingPOST",
+                "security": []
+            },
+            "put": {
+                "tags": [
+                    "bank-account-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BankAccount"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfBankAccount"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "updateUsingPUT",
+                "deprecated": true,
+                "security": []
+            }
+        },
+        "/bank-account/deposit-amount": {
+            "put": {
+                "tags": [
+                    "bank-account-controller"
+                ],
+                "summary": "deposit",
+                "operationId": "depositUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BankAccount"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfboolean"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/bank-account/withdraw-amount": {
+            "put": {
+                "tags": [
+                    "bank-account-controller"
+                ],
+                "summary": "withdraw",
+                "operationId": "withdrawUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/BankAccount"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfboolean"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/bank-account/{id}": {
+            "get": {
+                "tags": [
+                    "bank-account-controller"
+                ],
+                "summary": "findBankAccountById",
+                "operationId": "findBankAccountByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfBankAccount"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "bank-account-controller"
+                ],
+                "summary": "deleteById",
+                "operationId": "deleteByIdUsingDELETE",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfboolean"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/branches": {
+            "get": {
+                "tags": [
+                    "branch-location-controller"
+                ],
+                "summary": "findAllBranches",
+                "operationId": "findAllBranchesUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfListOfBranch"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/Accept"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    }
+                ],
+                "description": "findAllBranchesUsingGET",
+                "security": []
+            },
+            "post": {
+                "tags": [
+                    "branch-location-controller"
+                ],
+                "summary": "add",
+                "operationId": "addUsingPOST_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Branch"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfBranch"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "addUsingPOST_1"
+            }
+        },
+        "/branches/update": {
+            "put": {
+                "tags": [
+                    "branch-location-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Branch"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfBranch"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/branches/{id}": {
+            "get": {
+                "tags": [
+                    "branch-location-controller"
+                ],
+                "summary": "findBranchById",
+                "operationId": "findBranchByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfBranch"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "branch-location-controller"
+                ],
+                "summary": "deleteById",
+                "operationId": "deleteByIdUsingDELETE_1",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfBranch"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/issues": {
+            "post": {
+                "tags": [
+                    "issue-controller"
+                ],
+                "summary": "add",
+                "operationId": "addUsingPOST_2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Issue"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfIssue"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "addUsingPOST_2",
+                "security": []
+            },
+            "put": {
+                "tags": [
+                    "issue-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT_2",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "dto",
+                        "description": "dto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Issue"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfIssue"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/issues/product/{projectId}": {
+            "get": {
+                "tags": [
+                    "issue-controller"
+                ],
+                "summary": "findByProjectId",
+                "operationId": "findByProjectIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "projectId",
+                        "in": "path",
+                        "description": "projectId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page",
+                        "required": false,
+                        "type": "integer",
+                        "default": 0,
+                        "format": "int32"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "type": "integer",
+                        "default": 20,
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfListOfIssue"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/issues/product/{projectId}/issue/{id}": {
+            "delete": {
+                "tags": [
+                    "issue-controller"
+                ],
+                "summary": "delete",
+                "operationId": "deleteUsingDELETE",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "projectId",
+                        "in": "path",
+                        "description": "projectId",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfIssue"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/issues/ui": {
+            "post": {
+                "tags": [
+                    "issue-controller"
+                ],
+                "summary": "addFromUI",
+                "operationId": "addFromUIUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Issue"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfIssue"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "issue-controller"
+                ],
+                "summary": "updateFromUI",
+                "operationId": "updateFromUIUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "dto",
+                        "description": "dto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Issue"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfIssue"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/issues/{id}": {
+            "get": {
+                "tags": [
+                    "issue-controller"
+                ],
+                "summary": "findById",
+                "operationId": "findByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfIssue"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/orgs": {
+            "get": {
+                "tags": [
+                    "org-controller"
+                ],
+                "summary": "findAll",
+                "operationId": "findAllUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page",
+                        "required": false,
+                        "default": 0,
+                        "format": "int32",
+                        "x-key": 1,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "default": 20,
+                        "format": "int32",
+                        "x-key": 2,
+                        "type": "integer"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Accept"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfListOfOrg"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "findAllUsingGET",
+                "security": []
+            },
+            "post": {
+                "tags": [
+                    "org-controller"
+                ],
+                "summary": "create",
+                "operationId": "createUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Org"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfOrg"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "createUsingPOST",
+                "security": []
+            }
+        },
+        "/orgs/allorgs": {
+            "get": {
+                "tags": [
+                    "org-controller"
+                ],
+                "summary": "findAllOrgs",
+                "operationId": "findAllOrgsUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page",
+                        "required": false,
+                        "type": "integer",
+                        "default": 0,
+                        "format": "int32"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "type": "integer",
+                        "default": 20,
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfListOfOrg"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/orgs/by-user": {
+            "get": {
+                "tags": [
+                    "org-controller"
+                ],
+                "summary": "findOrgUsers",
+                "operationId": "findOrgUsersUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page",
+                        "required": false,
+                        "type": "integer",
+                        "default": 0,
+                        "format": "int32"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "type": "integer",
+                        "default": 20,
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfListOfOrgUsers"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/orgs/find-by-name/{name}": {
+            "get": {
+                "tags": [
+                    "org-controller"
+                ],
+                "summary": "findByName",
+                "operationId": "findByNameUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page",
+                        "required": false,
+                        "type": "integer",
+                        "default": 0,
+                        "format": "int32"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "type": "integer",
+                        "default": 20,
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfOrgUsers"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/orgs/login-status": {
+            "get": {
+                "tags": [
+                    "org-controller"
+                ],
+                "summary": "login",
+                "operationId": "loginUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfOrgUsers"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/orgs/search": {
+            "get": {
+                "tags": [
+                    "org-controller"
+                ],
+                "summary": "search",
+                "operationId": "searchUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "keyword",
+                        "in": "query",
+                        "description": "keyword",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page",
+                        "required": false,
+                        "type": "integer",
+                        "default": 0,
+                        "format": "int32"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "type": "integer",
+                        "default": 20,
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfListOfOrg"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/orgs/{branchId}/branch-user/{orgUserId}": {
+            "get": {
+                "tags": [
+                    "org-controller"
+                ],
+                "summary": "findOrgUserById",
+                "operationId": "findOrgUserByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "branchId",
+                        "in": "path",
+                        "description": "branchId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "orgUserId",
+                        "in": "path",
+                        "description": "orgUserId",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfOrgUsers"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/orgs/{branchId}/users/add-member": {
+            "post": {
+                "tags": [
+                    "org-controller"
+                ],
+                "summary": "findOrgUsersById",
+                "operationId": "findOrgUsersByIdUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "branchId",
+                        "in": "path",
+                        "description": "branchId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "member",
+                        "description": "member",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Member"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfboolean"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/orgs/{branchId}/users/{userId}": {
+            "put": {
+                "tags": [
+                    "org-controller"
+                ],
+                "summary": "updateOrgUser",
+                "operationId": "updateOrgUserUsingPUT",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "branchId",
+                        "in": "path",
+                        "description": "branchId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "userId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/OrgUsers"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfboolean"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/orgs/{branchId}/users/{userId}/reset-password": {
+            "post": {
+                "tags": [
+                    "org-controller"
+                ],
+                "summary": "resetPassword",
+                "operationId": "resetPasswordUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "branchId",
+                        "in": "path",
+                        "description": "branchId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "userId",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "member",
+                        "description": "member",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Member"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfboolean"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/orgs/{id}": {
+            "get": {
+                "tags": [
+                    "org-controller"
+                ],
+                "summary": "findById",
+                "operationId": "findByIdUsingGET_1",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfOrg"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "org-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT_3",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "dto",
+                        "description": "dto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Org"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfOrg"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "org-controller"
+                ],
+                "summary": "delete",
+                "operationId": "deleteUsingDELETE_1",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfOrg"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/orgs/{id}/users": {
+            "get": {
+                "tags": [
+                    "org-controller"
+                ],
+                "summary": "findOrgUsersById",
+                "operationId": "findOrgUsersByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page",
+                        "required": false,
+                        "type": "integer",
+                        "default": 0,
+                        "format": "int32"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "type": "integer",
+                        "default": 20,
+                        "format": "int32"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfListOfOrgUsers"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/primary-account/deposit-amount/{id}": {
+            "put": {
+                "tags": [
+                    "primary-account-controller"
+                ],
+                "summary": "deposit",
+                "operationId": "depositUsingPUT_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "x-key": 1,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PrimaryAccount"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfboolean"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "depositUsingPUT_1",
+                "security": []
+            }
+        },
+        "/primary-account/primary-account": {
+            "get": {
+                "tags": [
+                    "primary-account-controller"
+                ],
+                "summary": "findAllPrimaryAccount",
+                "operationId": "findAllPrimaryAccountUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "default": 20,
+                        "format": "int32",
+                        "x-key": 1,
+                        "type": "integer"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Accept"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfListOfPrimaryAccount"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "findAllPrimaryAccountUsingGET",
+                "security": []
+            },
+            "post": {
+                "tags": [
+                    "primary-account-controller"
+                ],
+                "summary": "add",
+                "operationId": "addUsingPOST_3",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PrimaryAccount"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfPrimaryAccount"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "addUsingPOST_3",
+                "security": []
+            },
+            "put": {
+                "tags": [
+                    "primary-account-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT_4",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PrimaryAccount"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfPrimaryAccount"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/primary-account/primary-account/{id}": {
+            "get": {
+                "tags": [
+                    "primary-account-controller"
+                ],
+                "summary": "findPrimaryAccountById",
+                "operationId": "findPrimaryAccountByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfPrimaryAccount"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "primary-account-controller"
+                ],
+                "summary": "deleteById",
+                "operationId": "deleteByIdUsingDELETE_2",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfboolean"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/primary-account/withdraw-amount/{id}": {
+            "put": {
+                "tags": [
+                    "primary-account-controller"
+                ],
+                "summary": "withdraw",
+                "operationId": "withdrawUsingPUT_1",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PrimaryAccount"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfboolean"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/primary-transaction": {
+            "get": {
+                "tags": [
+                    "primary-transaction-controller"
+                ],
+                "summary": "findAllPrimaryTransaction",
+                "operationId": "findAllPrimaryTransactionUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "default": 20,
+                        "format": "int32",
+                        "x-key": 1,
+                        "type": "integer"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Accept"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfListOfPrimaryTransaction"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "findAllPrimaryTransactionUsingGET",
+                "security": []
+            },
+            "post": {
+                "tags": [
+                    "primary-transaction-controller"
+                ],
+                "summary": "add",
+                "operationId": "addUsingPOST_4",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PrimaryTransaction"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfPrimaryTransaction"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "addUsingPOST_4",
+                "security": []
+            },
+            "put": {
+                "tags": [
+                    "primary-transaction-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT_5",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/PrimaryTransaction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfPrimaryTransaction"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/primary-transaction/{id}": {
+            "get": {
+                "tags": [
+                    "primary-transaction-controller"
+                ],
+                "summary": "findPrimaryTransactionById",
+                "operationId": "findPrimaryTransactionByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfPrimaryTransaction"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "primary-transaction-controller"
+                ],
+                "summary": "deleteById",
+                "operationId": "deleteByIdUsingDELETE_3",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfPrimaryTransaction"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/products": {
+            "get": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "findAll",
+                "operationId": "findAllUsingGET_1",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "page",
+                        "required": false,
+                        "default": 0,
+                        "format": "int32",
+                        "x-key": 1,
+                        "type": "integer"
+                    },
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "default": 20,
+                        "format": "int32",
+                        "x-key": 2,
+                        "type": "integer"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Accept"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfListOfProject"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "findAllUsingGET_1",
+                "security": []
+            },
+            "post": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "add",
+                "operationId": "addUsingPOST_5",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Project"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfProject"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "addUsingPOST_5",
+                "security": []
+            },
+            "put": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT_6",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "dto",
+                        "description": "dto",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Project"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfProject"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "deprecated": true,
+                "description": "updateUsingPUT_6"
+            }
+        },
+        "/products/{id}": {
+            "get": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "findById",
+                "operationId": "findByIdUsingGET_2",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfProject"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "product-controller"
+                ],
+                "summary": "delete",
+                "operationId": "deleteUsingDELETE_2",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfProject"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/recepient": {
+            "get": {
+                "tags": [
+                    "recepient-controller"
+                ],
+                "summary": "findAllRecepients",
+                "operationId": "findAllRecepientsUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "default": 20,
+                        "format": "int32",
+                        "x-key": 1,
+                        "type": "integer"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Accept"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfListOfRecepient"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "findAllRecepientsUsingGET",
+                "security": []
+            },
+            "post": {
+                "tags": [
+                    "recepient-controller"
+                ],
+                "summary": "addRecepient",
+                "operationId": "addRecepientUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Recepient"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfRecepient"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "addRecepientUsingPOST",
+                "security": []
+            },
+            "put": {
+                "tags": [
+                    "recepient-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT_7",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Recepient"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfRecepient"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/recepient/{id}": {
+            "get": {
+                "tags": [
+                    "recepient-controller"
+                ],
+                "summary": "findRecepientById",
+                "operationId": "findRecepientByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfRecepient"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "recepient-controller"
+                ],
+                "summary": "deleteById",
+                "operationId": "deleteByIdUsingDELETE_4",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfRecepient"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/savings-account/savings-account": {
+            "get": {
+                "tags": [
+                    "savings-account-controller"
+                ],
+                "summary": "findAllSavingsAccount",
+                "operationId": "findAllSavingsAccountUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "default": 20,
+                        "format": "int32",
+                        "x-key": 1,
+                        "type": "integer"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Accept"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfListOfSavingsAccount"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "findAllSavingsAccountUsingGET",
+                "security": []
+            },
+            "post": {
+                "tags": [
+                    "savings-account-controller"
+                ],
+                "summary": "add",
+                "operationId": "addUsingPOST_6",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SavingsAccount"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfSavingsAccount"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "addUsingPOST_6",
+                "security": []
+            },
+            "put": {
+                "tags": [
+                    "savings-account-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT_8",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SavingsAccount"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfSavingsAccount"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/savings-account/savings-account/{id}": {
+            "get": {
+                "tags": [
+                    "savings-account-controller"
+                ],
+                "summary": "findSavingsAccountById",
+                "operationId": "findSavingsAccountByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfSavingsAccount"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "savings-account-controller"
+                ],
+                "summary": "deleteById",
+                "operationId": "deleteByIdUsingDELETE_5",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfSavingsAccount"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/savings-transaction": {
+            "get": {
+                "tags": [
+                    "savings-transaction-controller"
+                ],
+                "summary": "findAllSavingsTransaction",
+                "operationId": "findAllSavingsTransactionUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "default": 20,
+                        "format": "int32",
+                        "x-key": 1,
+                        "type": "integer"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Accept"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfListOfSavingsTransaction"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "findAllSavingsTransactionUsingGET",
+                "security": []
+            },
+            "post": {
+                "tags": [
+                    "savings-transaction-controller"
+                ],
+                "summary": "add",
+                "operationId": "addUsingPOST_7",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SavingsTransaction"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfSavingsTransaction"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "addUsingPOST_7",
+                "security": []
+            },
+            "put": {
+                "tags": [
+                    "savings-transaction-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT_9",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/SavingsTransaction"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfSavingsTransaction"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/savings-transaction/{id}": {
+            "get": {
+                "tags": [
+                    "savings-transaction-controller"
+                ],
+                "summary": "findSavingsTransactionById",
+                "operationId": "findSavingsTransactionByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfSavingsTransaction"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "savings-transaction-controller"
+                ],
+                "summary": "deleteById",
+                "operationId": "deleteByIdUsingDELETE_6",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfSavingsTransaction"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/transfers": {
+            "get": {
+                "tags": [
+                    "transfers-controller"
+                ],
+                "summary": "findAllTransfers",
+                "operationId": "findAllTransfersUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "pageSize",
+                        "in": "query",
+                        "description": "pageSize",
+                        "required": false,
+                        "default": 20,
+                        "format": "int32",
+                        "x-key": 1,
+                        "type": "integer"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Accept"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfListOfTransfers"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "findAllTransfersUsingGET",
+                "security": []
+            },
+            "post": {
+                "tags": [
+                    "transfers-controller"
+                ],
+                "summary": "add",
+                "operationId": "addUsingPOST_8",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Transfers"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfTransfers"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "addUsingPOST_8",
+                "security": []
+            },
+            "put": {
+                "tags": [
+                    "transfers-controller"
+                ],
+                "summary": "update",
+                "operationId": "updateUsingPUT_10",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "request",
+                        "description": "request",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Transfers"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfTransfers"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        },
+        "/transfers/{id}": {
+            "get": {
+                "tags": [
+                    "transfers-controller"
+                ],
+                "summary": "findTransfersById",
+                "operationId": "findTransfersByIdUsingGET",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfTransfers"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "transfers-controller"
+                ],
+                "summary": "deleteById",
+                "operationId": "deleteByIdUsingDELETE_7",
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfTransfers"
+                        }
+                    },
+                    "204": {
+                        "description": "No Content"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/users/enterprise-sign-up": {
+            "post": {
+                "tags": [
+                    "users-controller"
+                ],
+                "summary": "enterpriseSignUp",
+                "operationId": "enterpriseSignUpUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "users",
+                        "description": "users",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfboolean"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "enterpriseSignUpUsingPOST",
+                "security": []
+            }
+        },
+        "/users/personal-sign-up": {
+            "post": {
+                "tags": [
+                    "users-controller"
+                ],
+                "summary": "personalSignUp",
+                "operationId": "personalSignUpUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "users",
+                        "description": "users",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfboolean"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "personalSignUpUsingPOST",
+                "security": []
+            }
+        },
+        "/users/status": {
+            "get": {
+                "tags": [
+                    "users-controller"
+                ],
+                "summary": "login",
+                "operationId": "loginUsingGET_1",
+                "produces": [
+                    "*/*"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfUsers"
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Accept"
+                    }
+                ],
+                "description": "loginUsingGET_1"
+            }
+        },
+        "/users/team-sign-up": {
+            "post": {
+                "tags": [
+                    "users-controller"
+                ],
+                "summary": "teamSignUp",
+                "operationId": "teamSignUpUsingPOST",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "*/*"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "users",
+                        "description": "users",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Users"
+                        }
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-acme"
+                    },
+                    {
+                        "$ref": "#/parameters/x-apikey"
+                    },
+                    {
+                        "$ref": "#/parameters/x-fin-res"
+                    },
+                    {
+                        "$ref": "#/parameters/Content-Type"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/ResponseOfboolean"
+                        }
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                },
+                "description": "teamSignUpUsingPOST",
+                "security": []
+            }
+        }
+    },
+    "definitions": {
+        "BankAccount": {
+            "type": "object",
+            "properties": {
+                "accountBalance": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "accountNumber": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "user": {
+                    "$ref": "#/definitions/NameDto"
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "BankAccount"
+        },
+        "Branch": {
+            "type": "object",
+            "properties": {
+                "access": {
+                    "type": "string"
+                },
+                "atmAtBranch": {
+                    "type": "string"
+                },
+                "branchMediatedServiceName": {
+                    "type": "string"
+                },
+                "branchName": {
+                    "type": "string"
+                },
+                "branchType": {
+                    "type": "string"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "customerSegment": {
+                    "type": "string"
+                },
+                "faxNumber": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "Branch"
+        },
+        "Issue": {
+            "type": "object",
+            "properties": {
+                "assertions": {
+                    "type": "string"
+                },
+                "assignedTo": {
+                    "type": "string"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "endpoint": {
+                    "type": "string"
+                },
+                "env": {
+                    "type": "string"
+                },
+                "failedAssertions": {
+                    "type": "string"
+                },
+                "headers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "issueName": {
+                    "type": "string"
+                },
+                "issueStatus": {
+                    "type": "string",
+                    "enum": [
+                        "OPEN",
+                        "CLOSED"
+                    ]
+                },
+                "issueType": {
+                    "type": "string",
+                    "enum": [
+                        "MANUAL",
+                        "AUTOMATIC"
+                    ]
+                },
+                "method": {
+                    "type": "string",
+                    "enum": [
+                        "GET",
+                        "HEAD",
+                        "POST",
+                        "PUT",
+                        "PATCH",
+                        "DELETE",
+                        "OPTIONS",
+                        "TRACE"
+                    ]
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "project": {
+                    "$ref": "#/definitions/Project"
+                },
+                "requestBody": {
+                    "type": "string"
+                },
+                "responseBody": {
+                    "type": "string"
+                },
+                "responseHeaders": {
+                    "type": "string"
+                },
+                "result": {
+                    "type": "string"
+                },
+                "statusCode": {
+                    "type": "string"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "Issue"
+        },
+        "Member": {
+            "type": "object",
+            "properties": {
+                "confirmPassword": {
+                    "type": "string"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "orgId": {
+                    "type": "string"
+                },
+                "orgRole": {
+                    "type": "string",
+                    "enum": [
+                        "READ",
+                        "WRITE",
+                        "ADMIN",
+                        "USER",
+                        "PROJECT_MANAGER",
+                        "ENTERPRISE_ADMIN",
+                        "BANK_ACCOUNTANT",
+                        "BANK_MANAGER"
+                    ]
+                },
+                "password": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "Member"
+        },
+        "Message": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "INFO",
+                        "ERROR",
+                        "WARNING"
+                    ]
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "title": "Message"
+        },
+        "NameDto": {
+            "type": "object",
+            "properties": {
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "NameDto"
+        },
+        "Org": {
+            "type": "object",
+            "properties": {
+                "billingEmail": {
+                    "type": "string"
+                },
+                "company": {
+                    "type": "string"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "orgPlan": {
+                    "type": "string",
+                    "enum": [
+                        "FREE",
+                        "PRO",
+                        "TEAM",
+                        "BASIC",
+                        "BUSINESS",
+                        "ENTERPRISE",
+                        "PAY_AS_YOU_GO"
+                    ]
+                },
+                "orgType": {
+                    "type": "string",
+                    "enum": [
+                        "PERSONAL",
+                        "TEAM",
+                        "ENTERPRISE"
+                    ]
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "Org"
+        },
+        "OrgUsers": {
+            "type": "object",
+            "properties": {
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "org": {
+                    "$ref": "#/definitions/NameDto"
+                },
+                "orgRole": {
+                    "type": "string",
+                    "enum": [
+                        "READ",
+                        "WRITE",
+                        "ADMIN",
+                        "USER",
+                        "PROJECT_MANAGER",
+                        "ENTERPRISE_ADMIN",
+                        "BANK_ACCOUNTANT",
+                        "BANK_MANAGER"
+                    ]
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "INVITED",
+                        "ACTIVE",
+                        "INACTIVE",
+                        "DECLINED",
+                        "REMOVED"
+                    ]
+                },
+                "users": {
+                    "$ref": "#/definitions/UserMinimalDto"
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "OrgUsers"
+        },
+        "PrimaryAccount": {
+            "type": "object",
+            "properties": {
+                "accountBalance": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "accountNumber": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "accountType": {
+                    "type": "string",
+                    "enum": [
+                        "SAVING",
+                        "CURRENT",
+                        "CREDIT"
+                    ]
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "PrimaryAccount"
+        },
+        "PrimaryTransaction": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "availableBalance": {
+                    "type": "number"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "#/definitions/NameDto"
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "PrimaryTransaction"
+        },
+        "Project": {
+            "type": "object",
+            "properties": {
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "org": {
+                    "$ref": "#/definitions/NameDto"
+                },
+                "refId": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "Project"
+        },
+        "Recepient": {
+            "type": "object",
+            "properties": {
+                "accountNumber": {
+                    "type": "string"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "#/definitions/NameDto"
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "Recepient"
+        },
+        "ResponseOfBankAccount": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/BankAccount"
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfBankAccount"
+        },
+        "ResponseOfBranch": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/Branch"
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfBranch"
+        },
+        "ResponseOfIssue": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/Issue"
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfIssue"
+        },
+        "ResponseOfListOfBankAccount": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/BankAccount"
+                    }
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfListOfBankAccount"
+        },
+        "ResponseOfListOfBranch": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Branch"
+                    }
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfListOfBranch"
+        },
+        "ResponseOfListOfIssue": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Issue"
+                    }
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfListOfIssue"
+        },
+        "ResponseOfListOfOrg": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Org"
+                    }
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfListOfOrg"
+        },
+        "ResponseOfListOfOrgUsers": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/OrgUsers"
+                    }
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfListOfOrgUsers"
+        },
+        "ResponseOfListOfPrimaryAccount": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PrimaryAccount"
+                    }
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfListOfPrimaryAccount"
+        },
+        "ResponseOfListOfPrimaryTransaction": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PrimaryTransaction"
+                    }
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfListOfPrimaryTransaction"
+        },
+        "ResponseOfListOfProject": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Project"
+                    }
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfListOfProject"
+        },
+        "ResponseOfListOfRecepient": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Recepient"
+                    }
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfListOfRecepient"
+        },
+        "ResponseOfListOfSavingsAccount": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SavingsAccount"
+                    }
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfListOfSavingsAccount"
+        },
+        "ResponseOfListOfSavingsTransaction": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/SavingsTransaction"
+                    }
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfListOfSavingsTransaction"
+        },
+        "ResponseOfListOfTransfers": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Transfers"
+                    }
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfListOfTransfers"
+        },
+        "ResponseOfOrg": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/Org"
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfOrg"
+        },
+        "ResponseOfOrgUsers": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/OrgUsers"
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfOrgUsers"
+        },
+        "ResponseOfPrimaryAccount": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/PrimaryAccount"
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfPrimaryAccount"
+        },
+        "ResponseOfPrimaryTransaction": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/PrimaryTransaction"
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfPrimaryTransaction"
+        },
+        "ResponseOfProject": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/Project"
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfProject"
+        },
+        "ResponseOfRecepient": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/Recepient"
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfRecepient"
+        },
+        "ResponseOfSavingsAccount": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/SavingsAccount"
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfSavingsAccount"
+        },
+        "ResponseOfSavingsTransaction": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/SavingsTransaction"
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfSavingsTransaction"
+        },
+        "ResponseOfTransfers": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/Transfers"
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfTransfers"
+        },
+        "ResponseOfUsers": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/Users"
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfUsers"
+        },
+        "ResponseOfboolean": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "boolean"
+                },
+                "errors": {
+                    "type": "boolean"
+                },
+                "messages": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Message"
+                    }
+                },
+                "requestId": {
+                    "type": "string"
+                },
+                "requestTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "totalElements": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "totalPages": {
+                    "type": "integer",
+                    "format": "int32"
+                }
+            },
+            "title": "ResponseOfboolean"
+        },
+        "SavingsAccount": {
+            "type": "object",
+            "properties": {
+                "accountBalance": {
+                    "type": "number"
+                },
+                "accountNumber": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "user": {
+                    "$ref": "#/definitions/NameDto"
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "SavingsAccount"
+        },
+        "SavingsTransaction": {
+            "type": "object",
+            "properties": {
+                "amount": {
+                    "type": "number",
+                    "format": "double"
+                },
+                "availableBalance": {
+                    "type": "number"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "#/definitions/NameDto"
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "SavingsTransaction"
+        },
+        "Transfers": {
+            "type": "object",
+            "properties": {
+                "confirmed": {
+                    "type": "boolean"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "transactionType": {
+                    "type": "string",
+                    "enum": [
+                        "DEPOSIT",
+                        "WITHDRAW",
+                        "CHARGE",
+                        "ATM",
+                        "ONLINE",
+                        "POS",
+                        "TRANSFER",
+                        "CHECK"
+                    ]
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "Transfers"
+        },
+        "UserMinimalDto": {
+            "type": "object",
+            "properties": {
+                "company": {
+                    "type": "string"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "jobTitle": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "UserMinimalDto"
+        },
+        "Users": {
+            "type": "object",
+            "properties": {
+                "accountNonExpired": {
+                    "type": "boolean"
+                },
+                "accountNonLocked": {
+                    "type": "boolean"
+                },
+                "company": {
+                    "type": "string"
+                },
+                "createdBy": {
+                    "type": "string"
+                },
+                "createdDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "credentialsNonExpired": {
+                    "type": "boolean"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "inactive": {
+                    "type": "boolean"
+                },
+                "jobTitle": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "modifiedBy": {
+                    "type": "string"
+                },
+                "modifiedDate": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "privileges": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "username": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "integer",
+                    "format": "int64"
+                }
+            },
+            "title": "Users"
+        }
+    },
+    "schemes": [
+        "http"
+    ],
+    "x-servers": [],
+    "consumes": [],
+    "produces": [],
+    "securityDefinitions": {},
+    "parameters": {
+        "x-fin-acme": {
+            "name": "x-fin-acme",
+            "in": "header",
+            "required": true,
+            "x-newAdded": true,
+            "type": "string"
+        },
+        "x-fin-stp-id": {
+            "name": "x-fin-stp-id",
+            "in": "header",
+            "required": false,
+            "x-newAdded": true,
+            "type": "string"
+        },
+        "x-apikey": {
+            "name": "x-apikey",
+            "in": "header",
+            "required": true,
+            "x-newAdded": true,
+            "type": "string"
+        },
+        "x-fin-res": {
+            "name": "x-fin-res",
+            "in": "header",
+            "required": true,
+            "x-newAdded": true,
+            "type": "string"
+        },
+        "Accept": {
+            "name": "Accept",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-newAdded": true,
+            "x-example": "",
+            "default": "application/json",
+            "enum": [
+                "application/json"
+            ]
+        },
+        "Content-Type": {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "x-newAdded": true,
+            "default": "application/json",
+            "enum": [
+                "application/json"
+            ]
+        }
+    },
+    "x-mock": true,
+    "x-metadata": {
+        "metadata": {
+            "swaggerName": "e639c45aa1ad444bb1ba0ec77263fa60",
+            "revision": 1,
+            "documentation": [],
+            "category": [
+                {
+                    "name": "Unsorted",
+                    "paths": [
+                        "/bank-account",
+                        "/bank-account/deposit-amount",
+                        "/bank-account/withdraw-amount",
+                        "/bank-account/{id}",
+                        "/branches",
+                        "/branches/update",
+                        "/branches/{id}",
+                        "/issues",
+                        "/issues/product/{projectId}",
+                        "/issues/product/{projectId}/issue/{id}",
+                        "/issues/ui",
+                        "/issues/{id}",
+                        "/orgs",
+                        "/orgs/allorgs",
+                        "/orgs/by-user",
+                        "/orgs/find-by-name/{name}",
+                        "/orgs/login-status",
+                        "/orgs/search",
+                        "/orgs/{branchId}/branch-user/{orgUserId}",
+                        "/orgs/{branchId}/users/add-member",
+                        "/orgs/{branchId}/users/{userId}",
+                        "/orgs/{branchId}/users/{userId}/reset-password",
+                        "/orgs/{id}",
+                        "/orgs/{id}/users",
+                        "/primary-account/deposit-amount/{id}",
+                        "/primary-account/primary-account",
+                        "/primary-account/primary-account/{id}",
+                        "/primary-account/withdraw-amount/{id}",
+                        "/primary-transaction",
+                        "/primary-transaction/{id}",
+                        "/products",
+                        "/products/{id}",
+                        "/recepient",
+                        "/recepient/{id}",
+                        "/savings-account/savings-account",
+                        "/savings-account/savings-account/{id}",
+                        "/savings-transaction",
+                        "/savings-transaction/{id}",
+                        "/transfers",
+                        "/transfers/{id}",
+                        "/users/enterprise-sign-up",
+                        "/users/personal-sign-up",
+                        "/users/status",
+                        "/users/team-sign-up"
+                    ],
+                    "definitions": [
+                        "BankAccount",
+                        "Branch",
+                        "Issue",
+                        "Member",
+                        "Message",
+                        "NameDto",
+                        "Org",
+                        "OrgUsers",
+                        "PrimaryAccount",
+                        "PrimaryTransaction",
+                        "Project",
+                        "Recepient",
+                        "ResponseOfBankAccount",
+                        "ResponseOfBranch",
+                        "ResponseOfIssue",
+                        "ResponseOfListOfBankAccount",
+                        "ResponseOfListOfBranch",
+                        "ResponseOfListOfIssue",
+                        "ResponseOfListOfOrg",
+                        "ResponseOfListOfOrgUsers",
+                        "ResponseOfListOfPrimaryAccount",
+                        "ResponseOfListOfPrimaryTransaction",
+                        "ResponseOfListOfProject",
+                        "ResponseOfListOfRecepient",
+                        "ResponseOfListOfSavingsAccount",
+                        "ResponseOfListOfSavingsTransaction",
+                        "ResponseOfListOfTransfers",
+                        "ResponseOfOrg",
+                        "ResponseOfOrgUsers",
+                        "ResponseOfPrimaryAccount",
+                        "ResponseOfPrimaryTransaction",
+                        "ResponseOfProject",
+                        "ResponseOfRecepient",
+                        "ResponseOfSavingsAccount",
+                        "ResponseOfSavingsTransaction",
+                        "ResponseOfTransfers",
+                        "ResponseOfUsers",
+                        "ResponseOfboolean",
+                        "SavingsAccount",
+                        "SavingsTransaction",
+                        "Transfers",
+                        "UserMinimalDto",
+                        "Users"
+                    ]
+                }
+            ]
+        }
+    }
+}
