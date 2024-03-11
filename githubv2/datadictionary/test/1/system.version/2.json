@@ -1,0 +1,1 @@
+{"system.version":{"type":"object","properties":{"_id":{"type":"string","format":""},"version":{"type":"string","format":""},"currentVersion":{"type":"integer","format":"int32"}}},"definitions":{}}

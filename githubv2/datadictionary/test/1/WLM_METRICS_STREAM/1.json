@@ -1,0 +1,1 @@
+{"WLM_METRICS_STREAM":{"type":"object","properties":{"TIMESTAMP":{"type":"string","format":"date"},"PC":{"type":"string","format":""},"NEGATIVE_INTERVAL":{"type":"number","format":""}}},"definitions":{}}

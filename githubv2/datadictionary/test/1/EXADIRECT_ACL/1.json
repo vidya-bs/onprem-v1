@@ -1,0 +1,1 @@
+{"EXADIRECT_ACL":{"type":"object","properties":{"SERVICE_NAME":{"type":"string","format":""},"VM_UUID":{"type":"string","format":""},"VM_SGID":{"type":"string","format":""}}},"definitions":{}}

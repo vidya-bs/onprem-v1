@@ -1,0 +1,1 @@
+{"WLM_CLASSIFIER_PLAN":{"type":"object","properties":{"OPER":{"type":"number","format":""},"NCLSRS":{"type":"number","format":""},"CLPCSTR":{"type":"string","format":""},"ACTIVE":{"type":"string","format":""},"SEQNO":{"type":"number","format":""},"TIMESTAMP":{"type":"string","format":"date"},"CHKSUM":{"type":"number","format":""}}},"definitions":{}}

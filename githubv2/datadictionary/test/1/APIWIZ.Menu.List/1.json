@@ -1,0 +1,1 @@
+{"APIWIZ.Menu.List":{"type":"object","properties":{"_id":{"type":"string","format":""},"menus":{"type":"string","format":""},"_class":{"type":"string","format":""}}},"definitions":{}}

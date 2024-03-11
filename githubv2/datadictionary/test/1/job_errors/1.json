@@ -1,0 +1,1 @@
+{"job_errors":{"type":"object","properties":{"job_id":{"type":"integer","format":""},"pid":{"type":"integer","format":""},"start_time":{"type":"string","format":"date-time"},"finish_time":{"type":"string","format":"date-time"},"error_data":{"type":"object","format":""}}},"definitions":{}}

@@ -1,0 +1,1 @@
+{"bgw_policy_chunk_stats":{"type":"object","properties":{"job_id":{"type":"integer","format":""},"chunk_id":{"type":"integer","format":""},"num_times_job_run":{"type":"integer","format":""},"last_time_job_run":{"type":"string","format":"date-time"}}},"definitions":{}}

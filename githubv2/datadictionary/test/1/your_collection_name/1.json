@@ -1,0 +1,1 @@
+{"your_collection_name":{"type":"object","properties":{"_id":{"type":"string","format":""},"employee_id":{"type":"number","format":"double"},"employee_name":{"type":"string","format":""},"employee_position":{"type":"string","format":""}}},"definitions":{}}

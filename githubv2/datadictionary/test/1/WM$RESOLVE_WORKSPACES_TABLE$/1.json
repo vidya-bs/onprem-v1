@@ -1,0 +1,1 @@
+{"WM$RESOLVE_WORKSPACES_TABLE$":{"type":"object","properties":{"WORKSPACE#":{"type":"number","format":""},"RESOLVE_USER":{"type":"string","format":""},"UNDO_SP#":{"type":"number","format":""},"OLDFREEZEWRITER":{"type":"string","format":""},"WM$FLAG":{"type":"number","format":""}}},"definitions":{}}

@@ -1,0 +1,1 @@
+{"IP_ACL":{"type":"object","properties":{"SERVICE_NAME":{"type":"string","format":""},"HOST":{"type":"string","format":""}}},"definitions":{}}
