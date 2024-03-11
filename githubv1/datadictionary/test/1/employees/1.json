@@ -1,0 +1,1 @@
+{"employees":{"type":"object","properties":{"employee_id":{"type":"integer","format":""},"employee_name":{"type":"string","format":""},"employee_position":{"type":"string","format":""}}},"definitions":{}}

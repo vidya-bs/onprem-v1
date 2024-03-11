@@ -1,0 +1,1 @@
+{"YOUR_TABLE_NAME":{"type":"object","properties":{"EMPLOYEE_ID":{"type":"number","format":""},"EMPLOYEE_NAME":{"type":"string","format":""},"EMPLOYEE_POSITION":{"type":"string","format":""}}},"definitions":{}}

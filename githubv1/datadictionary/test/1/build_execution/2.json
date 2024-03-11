@@ -1,0 +1,1 @@
+{"build_execution":{"type":"object","properties":{"id":{"type":"integer","format":""},"azureapi_id":{"type":"string","format":""},"tenant":{"type":"string","format":""},"status":{"type":"string","format":""},"error_description":{"type":"string","format":""}}},"definitions":{}}

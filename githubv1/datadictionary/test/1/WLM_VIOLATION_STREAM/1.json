@@ -1,0 +1,1 @@
+{"WLM_VIOLATION_STREAM":{"type":"object","properties":{"TIMESTAMP":{"type":"string","format":"date"},"SERVERPOOL":{"type":"string","format":""},"VIOLATION":{"type":"string","format":""}}},"definitions":{}}

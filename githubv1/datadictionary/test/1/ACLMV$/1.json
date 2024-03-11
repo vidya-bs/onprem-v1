@@ -1,0 +1,1 @@
+{"ACLMV$":{"type":"object","properties":{"TABLE_OBJ#":{"type":"number","format":""},"ACL_MVIEW_OBJ#":{"type":"number","format":""},"REFRESH_MODE":{"type":"number","format":""},"JOB_NAME":{"type":"string","format":""},"TRACE_LEVEL":{"type":"number","format":""}}},"definitions":{}}

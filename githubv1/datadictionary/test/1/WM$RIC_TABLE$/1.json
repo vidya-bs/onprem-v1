@@ -1,0 +1,1 @@
+{"WM$RIC_TABLE$":{"type":"object","properties":{"CT_VTID#":{"type":"number","format":""},"PT_VTID#":{"type":"number","format":""},"RIC_NAME":{"type":"string","format":""},"CT_COLS":{"type":"string","format":""},"PT_COLS":{"type":"string","format":""},"PT_UNIQUE_CONST_NAME":{"type":"string","format":""},"WM$FLAG":{"type":"number","format":""}}},"definitions":{}}

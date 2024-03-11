@@ -1,0 +1,1 @@
+{"WLM_MPA_STREAM":{"type":"object","properties":{"NAME":{"type":"string","format":""},"SERVERORPOOL":{"type":"string","format":""},"RISKLEVEL":{"type":"number","format":""}}},"definitions":{}}
